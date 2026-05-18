@@ -1,10 +1,7 @@
 import express from "express";
-
+import notesRoutes from "./routes/notesRoutes.js";
 const app = express();
 
-app.get("/api/notes", (req,res)=> {
-    res.send("you got 5 notes")
-});
 
 /* Http responses
 
@@ -30,6 +27,10 @@ app.get("/api/notes", (req,res)=> {
      503- Servers unavailable (temp down)
      
      server tried but it failed*/
+
+app.use("/api/notes", notesRoutes)
+
+//we prefixed all the routes with this specific route prefix
 
 app.listen(5001, ()=>{
     console.log("Port online at 5001")
