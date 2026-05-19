@@ -1,7 +1,16 @@
 import express from "express";
 import notesRoutes from "./routes/notesRoutes.js";
-const app = express();
+import { connectDB } from "./config/db.js";
+import dotenv from "dotenv";
 
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 5001;
+
+// we are making sure that the port is also hidden, or else it will run on default port
+
+//dotenv helps us such that we can hide important variables such as our MONGO_URI
+connectDB();
 
 /* Http responses
 
@@ -32,7 +41,7 @@ app.use("/api/notes", notesRoutes)
 
 //we prefixed all the routes with this specific route prefix
 
-app.listen(5001, ()=>{
-    console.log("Port online at 5001")
+app.listen(PORT, () => {
+     console.log("Port online at :", PORT);
 });
 
