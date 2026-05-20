@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 5001;
 //dotenv helps us such that we can hide important variables such as our MONGO_URI
 connectDB();
 
+//middleware
+app.use(express.json())
 /* Http responses
 
 1xx- Informational

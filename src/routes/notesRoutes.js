@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { createNotes, deleteNotes, getAllNotes, updateNotes } from "../controllers/notesController.js";
+import { getNotesById, createNotes, deleteNotes, getAllNotes, updateNotes } from "../controllers/notesController.js";
 
 const router = express.Router();
 
@@ -24,14 +24,16 @@ router.delete(":id", (req,res) => {
 
 router.get("/",getAllNotes);
 
+router.get("/:id",getNotesById);
+
 router.post("/",createNotes);
 
-router.put("/",updateNotes);
+router.put("/:id",updateNotes);
 
-router.delete("/",deleteNotes);
+router.delete("/:id",deleteNotes);
 
 //basically we are calling each function from another file specified for controllers
 
 
 
-export default Router;
+export default router;
