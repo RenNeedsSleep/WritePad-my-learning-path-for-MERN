@@ -6,7 +6,7 @@ const router = express.Router();
 /*
 router.get("/", (req,res)=> {
 });
-
+//Making some changes for Jenkins
 router.post("/", (req,res) => {
     res.status(201).json({message:"post created successfully"})
 })
